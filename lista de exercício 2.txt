@@ -1,0 +1,167 @@
+Questão 1
+
+function contarOcorrencias(array) {
+    const frequencia = {};
+
+    for (let num of array) {
+        if (frequencia[num]) {
+            frequencia[num]++; // Incrementa se o número já estiver no objeto
+        } else {
+            frequencia[num] = 1; // Inicializa o número com valor 1
+        }
+    }
+
+    return frequencia;
+}
+
+// Exemplo de uso:
+const numeros = [1, 2, 3, 2, 1, 4, 3, 3, 5, 1];
+const resultado = contarOcorrencias(numeros);
+console.log(resultado); // { '1': 3, '2': 2, '3': 3, '4': 1, '5': 1 }
+
+
+Questão 2
+
+function ordenarPorIdade(pessoas) {
+    return pessoas.sort((a, b) => a.idade - b.idade);
+}
+
+// Exemplo de uso:
+const pessoas = [
+    { nome: 'Lucas', idade: 25 },
+    { nome: 'Davi', idade: 20 },
+    { nome: 'Leo', idade: 30 }, // Corrigi o erro de sintaxe
+    { nome: 'Pedro', idade: 22 }
+];
+
+const resultado = ordenarPorIdade(pessoas);
+console.log(resultado);
+
+Questão 3
+
+function separarParesImpares(numeros) {
+    const resultado = {
+        pares: [],
+        impares: []
+    };
+
+    for (let num of numeros) {
+        if (num % 2 === 0) {
+            resultado.pares.push(num); // Adiciona ao array de pares
+        } else {
+            resultado.impares.push(num); // Adiciona ao array de ímpares
+        }
+    }
+
+    return resultado;
+}
+
+// Exemplo de uso:
+const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const resultado = separarParesImpares(numeros);
+
+console.log(resultado);
+// { pares: [2, 4, 6, 8, 10], impares: [1, 3, 5, 7, 9] }
+
+Questão 4
+
+function ehPalindromo(str) {
+    // Remove espaços e transforma a string em minúsculas para evitar problemas de formatação
+    const strLimpa = str.replace(/\s+/g, '').toLowerCase();
+
+    // Verifica se a string é igual à sua versão invertida
+    const strInvertida = strLimpa.split('').reverse().join('');
+    
+    return strLimpa === strInvertida;
+}
+
+// Exemplo de uso:
+console.log(ehPalindromo("A sacada da casa")); // true
+console.log(ehPalindromo("arara")); // true
+console.log(ehPalindromo("Palindromo")); // false
+
+Questão 5
+
+    let soma = 0;
+
+    for (let i = 0; i < matriz.length; i++) {
+        for (let j = 0; j < matriz[i].length; j++) {
+            soma += matriz[i][j]; // Soma cada elemento da matriz
+        }
+    }
+
+    return soma;
+}
+
+// Exemplo de uso:
+const matriz = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+const resultado = somaMatriz(matriz);
+console.log(resultado); // 45
+
+Questão 6
+
+function substituirElemento(array, valorAntigo, novoValor) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i] === valorAntigo) {
+            array[i] = novoValor; // Substitui o valor antigo pelo novo
+        }
+    }
+    return array;
+}
+
+// Exemplo de uso:
+const array = [1, 2, 3, 2, 4, 2, 5];
+const resultado = substituirElemento(array, 2, 99);
+console.log(resultado); // [1, 99, 3, 99, 4, 99, 5]
+
+Questão 7
+
+function multiplicarMatrizes(matrizA, matrizB) {
+    const linhasA = matrizA.length;
+    const colunasA = matrizA[0].length;
+    const linhasB = matrizB.length;
+    const colunasB = matrizB[0].length;
+
+    // Verifica se as matrizes podem ser multiplicadas
+    if (colunasA !== linhasB) {
+        throw new Error("O número de colunas da primeira matriz deve ser igual ao número de linhas da segunda.");
+    }
+
+    // Inicializa a matriz resultado com zeros
+    const resultado = Array(linhasA).fill(null).map(() => Array(colunasB).fill(0));
+
+    // Multiplica as matrizes
+    for (let i = 0; i < linhasA; i++) {
+        for (let j = 0; j < colunasB; j++) {
+            for (let k = 0; k < colunasA; k++) {
+                resultado[i][j] += matrizA[i][k] * matrizB[k][j];
+            }
+        }
+    }
+
+    return resultado;
+}
+
+// Exemplo de uso:
+const matrizA = [
+    [1, 2],
+    [3, 4],
+    [5, 6]
+];
+
+const matrizB = [
+    [7, 8, 9],
+    [10, 11, 12]
+];
+
+const resultado = multiplicarMatrizes(matrizA, matrizB);
+console.log(resultado);
+
+
+
+
